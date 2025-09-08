@@ -1,8 +1,9 @@
-#include "mnemosyne.hpp"
-#include "detours.h"
+#include "mnemosyne.h"
 
 #include <iomanip>
 #include <sstream>
+
+#include "detours.h"
 
 #ifdef _WIN64
 #pragma comment(lib, "detours64.lib")

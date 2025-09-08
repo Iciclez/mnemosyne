@@ -1,8 +1,14 @@
-#include <gtest/gtest.h>
-#include "mnemosyne.hpp"
+#include "../mnemosyne.h"
 
+#include <gtest/gtest.h>
+
+#ifdef _WIN64
 #pragma comment(lib, "mnemosyne.lib")
+#pragma comment(lib, "detours64.lib")
+#elif _WIN32
+#pragma comment(lib, "mnemosyne32.lib")
 #pragma comment(lib, "detours.lib")
+#endif
 
 TEST(pattern_match_unittest, test_pattern_match_find_address) {
   std::vector<uint8_t> haystack = {

@@ -1,10 +1,12 @@
-#include <gtest/gtest.h>
-#include "mnemosyne.hpp"
+#include "../mnemosyne.h"
 
-#pragma comment(lib, "mnemosyne.lib")
+#include <gtest/gtest.h>
+
 #ifdef _WIN64
+#pragma comment(lib, "mnemosyne.lib")
 #pragma comment(lib, "detours64.lib")
 #elif _WIN32
+#pragma comment(lib, "mnemosyne32.lib")
 #pragma comment(lib, "detours.lib")
 #endif
 

@@ -1,8 +1,14 @@
-#include <gtest/gtest.h>
-#include "mnemosyne.hpp"
+#include "../mnemosyne.h"
 
+#include <gtest/gtest.h>
+
+#ifdef _WIN64
 #pragma comment(lib, "mnemosyne.lib")
+#pragma comment(lib, "detours64.lib")
+#elif _WIN32
+#pragma comment(lib, "mnemosyne32.lib")
 #pragma comment(lib, "detours.lib")
+#endif
 
 TEST(util_unittest, test_util_string_to_bytes) {
   std::vector<uint8_t> expected = {0x12, 0x34, 0x56, 0x78,
